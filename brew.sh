@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Install command-line tools using Homebrew.
 
@@ -22,9 +22,6 @@ brew install moreutils
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed --with-default-names
-# Install a modern version of Bash.
-brew install bash
-brew install bash-completion2
 
 # Switch to using brew-installed bash as default shell
 if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
@@ -96,6 +93,132 @@ brew install ssh-copy-id
 brew install tree
 brew install vbindiff
 brew install zopfli
+
+brew install mackup
+brew install mas
+brew install zsh zsh-completions
+brew install bfg
+chsh -s $(which zsh)
+
+brew cask install dropbox
+brew cask install the-unarchiver
+brew cask install 1password
+brew cask install iterm2
+brew cask install skyfonts
+brew cask install sketch
+brew cask install recordit
+brew cask install spotify
+brew cask install musixmatch
+brew cask install keybase
+brew cask install shiftit
+brew cask install dash
+brew cask install real-vnc
+brew cask install rescuetime
+brew cask install transmission
+brew cask install aws-vault
+brew cask install loom
+
+# Browsers
+brew cask install google-chrome
+brew cask install microsoft-edge
+brew cask install firefox
+
+# IDEs & Workspaces
+brew cask install macvim
+brew cask install visual-studio-code
+brew cask install mysqlworkbench
+brew cask install monodraw
+brew cask install notion
+
+# Android
+brew cask install java8
+brew cask install android-studio
+
+# Virtualization
+brew cask install vagrant
+brew cask install docker
+brew cask install virtualbox
+
+# Communication platforms
+brew cask install skype
+brew cask install slack
+brew cask install franz
+brew cask install discord
+brew cask install microsoft-teams
+brew cask install zoomus
+
+brew cask install ngrok
+brew cask install charles
+brew cask install graphiql
+
+# Dependency managers
+brew install rbenv
+brew install rbenv-gemset
+brew install nvm
+brew install pyenv
+brew install yarn
+
+# Programming Language
+brew install golang
+
+brew install coreutils
+brew install gnu-tar --with-default-names
+brew install ondir
+brew install mkcert
+brew install nss
+brew install nektos/tap/act
+
+brew install heroku/brew/heroku
+brew install getsentry/tools/sentry-cli
+brew install awscli
+brew install github/gh/gh
+
+brew install optipng
+brew install jpegoptim
+brew install gifsicle
+brew install svgo
+brew install jhead
+brew install librsvg
+brew install pngquant
+
+brew install fd
+brew install fzf
+brew install yamllint
+brew install gpg
+brew install watchman
+brew install graphviz
+brew install htop
+brew install jq
+brew install ghostscript
+brew install imagemagick
+brew install cmake
+brew install cocoapods
+brew install wget
+
+# Database Management
+brew install postgresql
+brew install redis
+
+brew install tfenv
+brew install packer
+
+brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+
+# Plugins
+brew install readline
+brew install wakatime-cli
+brew install antigen
+
+# Restore configuration files from Dropbox
+mackup restore
+
+# Install latest version of Ruby
+rbenv install 2.6.5
+rbenv global 2.6.5
+
+# Install Node
+nodenv install 12.16.1
+nodenv global 12.16.1
 
 # Remove outdated versions from the cellar.
 brew cleanup

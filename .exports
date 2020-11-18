@@ -1,4 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+
+# Go installation
+export GOPATH=$HOME/go
 
 # Make vim the default editor.
 export EDITOR='vim';
@@ -9,6 +12,16 @@ export NODE_REPL_HISTORY=~/.node_history;
 export NODE_REPL_HISTORY_SIZE='32768';
 # Use sloppy mode by default, matching web browsers.
 export NODE_REPL_MODE='sloppy';
+
+# Execute nvm from console
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# If you come from bash you might have to change your $PATH
+export PATH='$HOME/go/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:
+/sbin:/Library/Apple/usr/bin:/usr/local/go/bin:$HOME/.rvm/bin:
+$(go env GOPATH)/bin:$HOME/bin:$PATH'
 
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8';
