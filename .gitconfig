@@ -1,6 +1,10 @@
-[user]
-	name = Aadit Kamat
-	email = aadit.k12@gmail.com
+[includeIf "gitdir:~/personal/"] # include for all .git projects under personal/
+
+path = ~/personal/.gitconfig-pers
+
+[includeIf "gitdir:~/work/"]
+
+path = ~/work/.gitconfig-work
 
 [alias]
 
@@ -103,27 +107,85 @@
 	# https://git-scm.com/docs/git-update-index#_untracked_cache
 	untrackedCache = true
 
->>>>>>> b7c7894e7bb2de5d60bfb9a2f5e46d01a61300ea
 [color]
-    diff  = auto
-    status= auto
-    branch= auto
-    interactive = true
 
-[alias]
-    ci = commit
-    di = diff --color-words
-    st = status
-    co = checkout
-    log1 = log --pretty=oneline --abbrev-commit
-    logs = log --stat
+	# Use colors in Git commands that are capable of colored output when
+	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+	ui = auto
 
-[filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+[color "branch"]
 
-[core]
-	excludesfile = ~/.gitignore
-	autocrlf = input
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+
+	meta = yellow bold
+	frag = magenta bold # line info
+	old = red # deletions
+	new = green # additions
+
+[color "status"]
+
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[commit]
+
+	# https://help.github.com/articles/signing-commits-using-gpg/
+	gpgsign = true
+
+[diff]
+
+	# Detect copies as well as renames.
+	renames = copies
+
+[diff "bin"]
+
+	# Use `hexdump` to diff binary files.
+	textconv = hexdump -v -C
+
+[help]
+
+	# Automatically correct and execute mistyped commands.
+	autocorrect = 1
+
+[merge]
+
+	# Include summaries of merged commits in newly created merge commit messages
+	log = true
+
+[push]
+
+	# https://git-scm.com/docs/git-config#git-config-pushdefault
+	default = simple
+	# Make `git push` push relevant annotated tags when pushing branches out.
+	followTags = true
+
+# URL shorthands
+
+[url "git@github.com:"]
+
+	insteadOf = "gh:"
+	pushInsteadOf = "github:"
+	pushInsteadOf = "git://github.com/"
+
+[url "git://github.com/"]
+
+	insteadOf = "github:"
+
+[url "git@gist.github.com:"]
+
+	insteadOf = "gst:"
+	pushInsteadOf = "gist:"
+	pushInsteadOf = "git://gist.github.com/"
+
+[url "git://gist.github.com/"]
+
+	insteadOf = "gist:"
+
+[init]
+
+	defaultBranch = main
